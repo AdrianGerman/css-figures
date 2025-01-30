@@ -4,6 +4,52 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Star Rating</title>
+    <style>
+      body {
+        background-color: #242424;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100dvh;
+      }
+      .rating {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+      }
+
+      .rating > input {
+        display: none;
+      }
+
+      .rating > label {
+        position: relative;
+        width: 1.1em;
+        font-size: 50px;
+        color: gold;
+        cursor: pointer;
+      }
+
+      .rating > label::before {
+        content: "\2605";
+        position: absolute;
+        opacity: 0;
+      }
+      .rating > label:hover:before,
+      .rating > label:hover ~ label:before {
+        opacity: 1 !important;
+      }
+
+      .rating > input:checked ~ label:before {
+        opacity: 1;
+      }
+
+      .rating:hover > input:checked ~ label:before {
+        opacity: 0.4;
+      }
+    </style>
   </head>
   <body>
     <div class="rating">
