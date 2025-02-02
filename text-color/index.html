@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text color animations</title>
+    <style>
+      body {
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #272334;
+        color: white;
+      }
+
+      .container {
+        text-align: center;
+      }
+      .animate-charcter {
+        text-transform: uppercase;
+        background-image: linear-gradient(
+          -225deg,
+          #231557 0%,
+          #44107a 29%,
+          #ff1361 67%,
+          #fff800 100%
+        );
+        background-size: auto auto;
+        background-clip: border-box;
+        background-size: 200% auto;
+        color: white;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        animation: textclip 2s linear infinite;
+        display: inline-block;
+        font-size: 40px;
+      }
+
+      @keyframes textclip {
+        to {
+          background-position: 200% center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h3 class="animate-charcter">EFECTO DE ANIMACIÓN</h3>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
