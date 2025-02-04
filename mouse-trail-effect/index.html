@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mouse trail effect</title>
+    <script defer>
+      document.addEventListener("mousemove", (e) => {
+        const trail = document.createElement("div")
+        trail.classList.add("trail")
+        document.body.appendChild(trail)
+        trail.style.left = e.pageX + "px"
+        trail.style.top = e.pageY + "px"
+
+        setTimeout(() => {
+          trail.remove()
+        }, 500)
+      })
+    </script>
+    <style>
+      body {
+        margin: 0;
+        height: 100dvh;
+        background-color: #111;
+        overflow: hidden;
+      }
+
+      .trail {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: #ff6600;
+        border-radius: 50%;
+        pointer-events: none;
+        animation: fade 0.5s forwards;
+      }
+
+      @keyframes fade {
+        0% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(0);
+        }
+      }
+    </style>
+  </head>
+  <body></body>
+</html>
