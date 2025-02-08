@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Effect</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+      html,
+      body,
+      div {
+        display: grid;
+      }
+      html {
+        min-height: 100%;
+      }
+      body {
+        --s: 4px;
+        --o: calc(0.5 * 6px);
+        background-color: #094770;
+        font: clamp(5em, min(65vh, 35vw), 39em) / 0.75 "Bebas Neue", sans-serif;
+      }
+
+      @supports (line-height: 1cap) {
+        body {
+          line-height: 1cap;
+        }
+      }
+
+      div {
+        --sl: calc(50% - 0.5px), #0000 calc(50% + 0.5px);
+        place-self: center;
+        place-content: center;
+        padding: calc(0.1em + 6px) 0.05em 0 0;
+        height: calc(1lh + 6px - var(--o));
+        background: linear-gradient(22.5deg, #fff var(--sl)) text,
+          linear-gradient(22.5deg, #000 var(--sl)),
+          linear-gradient(#094770 50%, #0000 0) 0 0/ 1% 6px;
+        color: #0000;
+        -webkit-text-stroke: #fff calc(var(--o));
+        text-transform: uppercase;
+        mix-blend-mode: screen;
+      }
+    </style>
+  </head>
+  <body>
+    <div>heim</div>
+  </body>
+</html>
