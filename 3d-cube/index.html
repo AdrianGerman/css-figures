@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Cube</title>
+    <style>
+      body {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100dvh;
+        background-color: #1a1a1a;
+        perspective: 1000px;
+      }
+
+      .scene {
+        width: 150px;
+        height: 150px;
+        position: relative;
+        transform-style: preserve-3d;
+        animation: rotateCube 8s infinite ease-in-out;
+      }
+
+      .face {
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        background-color: #7d61fb;
+        border: 2px solid #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        backface-visibility: hidden;
+      }
+
+      .front {
+        transform: rotateY(0deg) translateZ(75px);
+      }
+      .back {
+        transform: rotateY(180deg) translateZ(75px);
+      }
+      .left {
+        transform: rotateY(-90deg) translateZ(75px);
+      }
+      .right {
+        transform: rotateY(90deg) translateZ(75px);
+      }
+      .top {
+        transform: rotateX(90deg) translateZ(75px);
+      }
+      .bottom {
+        transform: rotateX(-90deg) translateZ(75px);
+      }
+
+      @keyframes rotateCube {
+        0%,
+        100% {
+          transform: rotateX(0deg) rotateY(0deg);
+        }
+        20% {
+          transform: rotateX(45deg) rotateY(45deg);
+        }
+        40% {
+          transform: rotateX(0deg) rotateY(90deg) scaleX(0.7) scaleY(0.7)
+            scaleZ(1.2);
+        }
+        60% {
+          transform: rotateX(-45deg) rotateY(135deg) scaleX(1) scaleY(0.7)
+            scaleZ(0.7);
+        }
+        80% {
+          transform: rotateX(0deg) rotateY(180deg) scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="scene">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face left"></div>
+      <div class="face right"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+  </body>
+</html>
