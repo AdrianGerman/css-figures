@@ -8,20 +8,17 @@
       * {
         box-sizing: border-box;
       }
-
       :root {
         --clr-bg: #011920;
         --clr-1: red;
         --clr-2: blue;
         --clr-3: rgb(175, 208, 84);
       }
-
       @property --angle {
         syntax: "<angle>";
         initial-value: 0deg;
         inherits: false;
       }
-
       body {
         min-height: 100svh;
         background-color: var(--clr-bg);
@@ -36,14 +33,12 @@
         background-size: 40px 40px;
         background-attachment: fixed;
       }
-
       .wrapper {
         position: relative;
         width: 200px;
         height: 200px;
         display: grid;
       }
-
       .wrapper > .ring {
         --speed-neon: 2000ms;
         --speed-rotation: 10000ms;
@@ -73,10 +68,9 @@
         animation-timing-function: linear, ease-in-out;
         animation-iteration-count: infinite;
         mask: linear-gradient(red, red),
-          radial-gradient(circle, red 73px, #0000) center no-repeat;
+          radial-gradient(circle, red 73px, #0000 0) center no-repeat;
         mask-composite: exclude;
       }
-
       @keyframes neon-rotate {
         from {
           --angle: 0deg;
@@ -85,7 +79,6 @@
           --angle: 360deg;
         }
       }
-
       @keyframes rotate {
         from {
           transform: rotateZ(0deg) rotateY(0deg) rotateX(0deg) translateZ(0px)
@@ -107,10 +100,10 @@
       <div class="ring" style="--i: -2"></div>
       <div class="ring" style="--i: -1"></div>
       <div class="ring" style="--i: 0"></div>
-      <div class="ring" style="--i: -1"></div>
-      <div class="ring" style="--i: -2"></div>
-      <div class="ring" style="--i: -3"></div>
-      <div class="ring" style="--i: -4"></div>
+      <div class="ring" style="--i: 1"></div>
+      <div class="ring" style="--i: 2"></div>
+      <div class="ring" style="--i: 3"></div>
+      <div class="ring" style="--i: 4"></div>
       <div class="ring" style="--i: 5"></div>
     </div>
   </body>
