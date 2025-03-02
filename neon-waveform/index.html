@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neon Waveform</title>
+    <style>
+      body {
+        background: black;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100dvh;
+        overflow: hidden;
+      }
+
+      canvas {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="waveCanvas"></canvas>
+  </body>
+  <script>
+    const canvas = document.getElementById("waveCanvas")
+    const ctx = canvas.getContext("2d")
+
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight
+
+    let t = 0
+    function drawWave() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      ctx.beginPath()
+      ctx.lineWidth = 3
+      ctx.strokeStyle = `hsl(${t % 360}, 100%, 50%)`
+
+      for (let i = 0; i < canvas.width; i += 10) {
+        let y = canvas.height / 2 + Math.sin(i * 0.02 + t * 0.05) * 80
+        ctx.lineTo(i, y)
+      }
+      ctx.stroke()
+      t += 1
+      requestAnimationFrame(drawWave)
+    }
+    drawWave()
+  </script>
+</html>
